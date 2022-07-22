@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+/* 
+aqui ele vai fazer as cores do mais fraco para  mais escuro
+optou paleta monocromática para entender essas cores #c5.. esta no capitulo de cores do curso
+#c5ebd6
+#83e1ad
+#3ddc84
+#2fa866
+#1a5c37
+#063d1e
+aqui vai ser criado a  pseudoclasse chamada root que vc coloca as cores e chama mais rápido são as variáveis no css que começa como exemplo abaixo com dois traços.
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: 'Android' ;
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+:root{
+    --cor0:  #c5ebd6;
+    --cor1:  #85e1ad;
+    --cor2:  #3ddc84;
+    --cor3:  #2fa866;
+    --cor4:  #1a5c37;
+    --cor5:  #063d1e;
+    /*fonte bebas buscou no google fontes https://fonts.google.com/ esta acima onde embeda essa fonte qualquer dúvida ver Capitulo de tipografia desse mod2  */
+    --fonte-padrao: arial,helvetica,sans-serif;
+    --fonte-destaque:'Bebas Neue', cursive; 
+    --fonte-android: 'Android',cursive;
+}
+
+/*aqui vai colocar tipo um seletor chaves com asterisco é uma configuração global seleciona todos elementos do html para tirar espaços de margin e padding(preenchimento) */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--cor0); /*aqui é o exemplo da varável sendo usada para aparecer clica ctrl espaço até o final digita --cor 0 e fica como var acima*/
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after {
+    content: '\00A0\1F517'; /*aqui foi colocado esse a.externo::after para todo link externo do site ficar com simbolo de corrente ver site https://emojipedia.org pesquisar em link , e para aparecer foi no html no link ( android e todos os link externo no HTML colocado a class="externo" para mostra o simbolo de corrente e colocado esse \00A0 para dar espaço quando aparece a corrente vcer no site.  */
+}    
+
+header{
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));/*feito degrade como visto em exercícios*/
+    min-height: 150px; 
+    text-align: center;
+    padding-top: 40px;/*este padding para   não ficar muito colado no topo */
+
+    }
+
+header  h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal;/*aqui usou para deixar mais leve aprencia da fonte sem ficar negrito*/
+    margin-bottom: 20px; /*esta margim para dar um espaço */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);/*aqui coloquei esta sombra inserindo  text shadow 2px 2px esses px sevem para clarear ou escurecer a sombra.... com rgba só clicar na cor que vc movimenta com mouse para ficar neste rgba pois não consegui inserir no inspecionar no google*/
+    
+}
+
+header > p{
+   font-family: var(--fonte-padrao); 
+   font-size: 1.2em;
+   color: var(--cor1); 
+   max-width: 600px; /*aqui foi colocado nesse header paragrafo esse max-width e embaixo foi colocado margem auto para centralizar pois com os 500px ele não centraliza e foi colocado os padding para não colar dos lados quando vc movimenta no responsivo   */
+   padding-right: 10px;
+   padding-left: 10px;
+   margin: auto;
+   margin-bottom: 20px;
+   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.267);
+
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.363); /*aqui coloquei esta sombra  inserindo  text shadow 0px 7px esses px severm para clarear ou escurecer a sombra.... com rgba só clicar na cor que vc movimenta com mouse para ficar neste rgba pois não consegui inserir no inspecionar no google*/
+}
+
+nav > a { /*colocado color para diferenciar do h1 , padding para separar noticias home etc ,text decoration para tirar sublinhado font-weight: bold; deixar negrito e border radius no home noticias deixar meio arrrendodado a borda este transition-duration foi uma novidade que Guanabara  colocou, para quando passar o mouse em cima ele deixa .5s com efeito veja no site */
+    color: var(--cor1);
+    padding: 10px; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: .5s;
+}
+
+nav > a:hover{ /*inserido este nav hover para quando passar o mouse no em cima home noticias etc ele muda de cor */ 
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+main{
+
+    min-width: 300px; /* essa largura é colocada para um celular antigo pequeno pois se abrir em um destes a imagem vai ser adaptada ; e onde foi colocado margin auto serve para adaptar a imagem pois se for visto em uma tela maior vai se auto adaptar */
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px ; /*esta margin foi para no final da margem embaixo para conteudo não ficar colado no rodapé*/
+    padding: 20px; /*para deixar a largura 
+    da página desgrudada do lado esquerdo */
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425); /*sombra de 0px para não ter deslocamento lateral e espalhamento de 10px black mas que vai ficar um pouco mais fraco volocando mouse no black e descendo 0, 0, 0, 0.425); */
+    border-bottom-left-radius: 10px; /*aqui foi posto border left right manual para deixar arrendondado somente a parte de baixo lef and right */
+    border-bottom-right-radius: 10px;
+}
+
+main  h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android); /*aqui se vc quiser mudar para uma outra fonte, exemplo seu cliente resolveu mudar,
+    só alterar para destaque ou padrão colocada acima como uma segunda opção  */
+    font-weight: normal ;/*aqui usou para deixar mais leve aprencia da fonte sem ficar negrito*/
+    font-size: 1.8em;
+
+
+}
+
+main h2 {/*esse background-image: ele seve para por imagens em todos h2 e as cores para fazer o degradee conforme colocado nos links e text indent serve para dar espacinho do lado esquerdo para direito */
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    font-weight: normal;/*aqui usou para deixar mais leve aprencia da fonte sem ficar negrito*/
+    background-image: linear-gradient(to right, var(--cor1),transparent) ;
+    text-indent: 8px ;
+}
+
+main p{
+    margin: 15px 0px; /*esta margin serve para alterar em cima e embaixo de todos os parágrafos o text justify para deixar alinhado como word e o text-ident é para fazer como se fosse o começo do parágrafo o um pouco para direita veja exemplo embaixo de história do mascote... o provalvemente, o line-height serve para dar altura nas linhas paragrafos aumente para 2em e olhe no site. */
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 1em;
+    line-height: 2em;
+}
+
+main strong { /*aqui tudo o que estiver em negrito no site com color e font vai ter estes efeitos*/
+    color: var(--cor5);
+    font-weight: bold;
+}
+
+main a {/* o main serve para colocar  tudo o que tiver links do site vai ficar em negrito com text e o font weight, color  para dar efeitos*/
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor3);
+    padding: 2px 6px ;
+}
+
+main a:hover{/*o hover serve para quando passar o mouse emcima dar efeito underline e color para mostrar no momento passar o mouse */
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%;   
+}
+
+main img.pequena{
+    max-width: 350px;
+    display: block;
+    margin: auto;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px;  /*para colar na parte de fora do site veja que 0px -20px o zero  é para não ter espaço nenhum embaixo e emcima e o -20px ele ajusta automático lado esq. e dir. 30px para ajustar a parte externa colar o verde  */
+    padding: 20px; /*(preenchimento) padding dar preenchimento no video dentro do verde */
+    padding-bottom: 57%;
+    position: relative;
+}
+
+div.video > iframe{/*aqui é um macete que vai ser utilizado no iframe do video para deixar melhor em cima div video pois position relative e um padding=bottom 57% para ajustar no site e embaixo position absolute vai ser colocado top para ajustar de cima para baixo olhando no canto esquerdo emcima e o left do lado esq. para direita , o width e o height para dar largura e altura no posicionamento do video no site tudo isso em "%" ai ajusta de acordo com % que quiser */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside{
+    background-color: var(--cor1);
+    padding: 10px;/*o padding server para dar espaço de onde esta escrito para dar espaço do topo para baixo de acordo com os px colocados */
+    border-radius: 10px;/* borda radius serve para deixar a borda do verde olhar no site arredondado de acordo com os px colocados */
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.281);/* bpx shadow sombra */
+
+}
+
+aside > h3 { /*esse background-color: ele seve para por cor em todos h3  */
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px ;/*essas margins com -10px -10px 0px -10px é para deixar as margins direita esquerda crescer para fora por isso -10px  e arredondamento coloca o border radius 10px*/
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul { /*aqui onde esta aside > é para deixar as bolinhas para dentro do verde no site , mas se vc quisesse mexer em todo Ul do site ai colocaria só Ul */
+    list-style-type: '\2714\00A0\00A0';/* list-style-type para dar estilo e entramos no site https://emojipedia.org/check-mark/ e pesquisou check depois copiou esse '\2714'que é colocado entre aspas e contra barra para dar efeito de check e 00A0 é colocado depois para check não ficar colado nos números 1.5... no site todo esse efeito as vezes funciona só no google chrome*/
+    list-style-position: inside;
+    columns: 2; /*para dividir as colunas em 2 para não ficar muito grande e quando for olhar em celular não bagunçar o que esta escrito*/ 
+}
+
+footer {
+  background-color: var(--cor5) ;  
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 5px;
+}
+
+footer a {
+  color: white;
+  font-weight: bolder ;
+  text-decoration: none;
+
+}
+
+footer a:hover { /*quando usado o "footer a:hover" é para selecionar o link e dar o efeito se clicar gustavo guanabara vai ficar underline e a cor 1 */
+  text-decoration: underline;  
+  color: var(--cor1);
+  
+}
